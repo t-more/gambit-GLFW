@@ -11,7 +11,9 @@ Cocoa, OpenGL, IOKit and CoreVideo
 Windows:
 opengl3
 
-when compiled run: 
+Currently working on a "schemified" wrapper that takes care of all c specfici interagation.
+
+To test, when compiled run: 
 
 ```scheme
 (load "gambitNative.o1")
