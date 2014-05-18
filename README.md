@@ -13,7 +13,7 @@ opengl3
 
 when compiled run: 
 
-```
+```scheme
 (load "gambitNative.o1")
 (if (not (glfw-native#init))
 (print "glfw init error \n")
@@ -23,7 +23,7 @@ when compiled run:
 This should give you a 100 x 100 black window.
 
 To create functions compatible with the diffrent event handlers you must make c-defines such as:
-```
+```scheme
 (c-define (glfw#error-callback-procedure error-code error-msg)(int nonnull-UTF-8-string) void "gambitErrorCallback" ""
           (if glfw#gambit-error-procedure
               (glfw#gambit-error-procedure)
@@ -32,7 +32,7 @@ To create functions compatible with the diffrent event handlers you must make c-
 ```
 
 You should now be able to run the follwing
-```
+```scheme
 (glfw#setErrorCallback window glfw#error-callback-procedure)
 ```
 
