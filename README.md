@@ -25,9 +25,12 @@ This should give you a 100 x 100 black window.
 To create functions compatible with the diffrent event handlers you must make c-defines such as:
 ```scheme
 (c-define (glfw#error-callback-procedure error-code error-msg)(int nonnull-UTF-8-string) void "gambitErrorCallback" ""
-          (if glfw#gambit-error-procedure
-              (glfw#gambit-error-procedure)
-              )
+          (print "Glfw error-code: ")
+          (print error-code)
+          (newline)
+          (print "Glfw error-message: ")
+          (print error-msg)
+          (newline)
           #f)
 ```
 
