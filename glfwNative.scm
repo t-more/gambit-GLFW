@@ -61,9 +61,9 @@ c-declare-end
 (c-define-type GLFWwindowclosefun     (function (GLFWwindow*)           void))
 (c-define-type GLFWwindrefreshfun     (function (GLFWwindow*)           void))
 (c-define-type GLFWwindowsizefun      (function (GLFWwindow* int int)   void))
-(c-define-type GLFWwindowiconifyfun   (function (GLFWwindow* int)       void))
+(c-define-type GLFWwindowiconifyfun   (function (GLFWwindow* bool)       void))
 (c-define-type GLFWwindowposfun       (function (GLFWwindow* int int)   void))
-(c-define-type GLFWwindowfocusfun     (function (GLFWwindow* int)       void))
+(c-define-type GLFWwindowfocusfun     (function (GLFWwindow* bool)       void))
 
 #|| framebuffer functions ||#
 (c-define-type GLFWframebuffersizefun (function (GLFWwindow* int int)   void))
