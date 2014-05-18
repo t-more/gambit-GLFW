@@ -11,7 +11,7 @@ Cocoa, OpenGL, IOKit and CoreVideo
 Windows:
 opengl3
 
-Currently working on a "schemified" wrapper that takes care of all c specfici interagation.
+Currently working on a "schemified" wrapper that takes care of all c specific interagation.
 
 To test, when compiled run: 
 
@@ -36,9 +36,9 @@ To create functions compatible with the diffrent event handlers you must make c-
           #f)
 ```
 
-You should now be able to run the follwing
+You should now be able to run the follwing:
 ```scheme
 (glfw#setErrorCallback window glfw#error-callback-procedure)
 ```
 
-If you have questions or remakrks feel free to contact me on tomas.o.more@gmail.com
+If you have questions or remarks feel free to contact me on tomas.o.more@gmail.com
