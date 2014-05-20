@@ -11,7 +11,11 @@ Cocoa, OpenGL, IOKit and CoreVideo
 Windows:
 opengl3
 
-Currently working on a "schemified" wrapper that takes care of all c specific interagation.
+
+There are now also a schemified version! see glfwREADME.md
+or read glwf.scm ;)
+
+
 
 To test, when compiled run: 
 
