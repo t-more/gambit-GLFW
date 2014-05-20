@@ -7,14 +7,7 @@ The purpose of this library is to wrap glfw natives to a more scheme friendly en
 gsc  -cc-options "-framework Cocoa -framework OpenGL -lglfw3 -framework CoreVideo -framework IOKit -x objective-c -I/usr/local/include -I/System/Library/Frameworks/CoreVideo.framework -I/System/Library/Frameworks/IOKit.framework -I/System/Library/Frameworks/Cocoa.framework -I/System/Library/Frameworks/OpenGL.framework -L/Users/tomasmore/Downloads/glfw-3.0.4/build/src/ "  glfw.scm
 gsc  -cc-options "-framework Cocoa -lglfw3 -lGLEW -framework CoreVideo -framework IOKit -x objective-c -I/usr/local/include -I/System/Library/Frameworks/CoreVideo.framework -I/System/Library/Frameworks/IOKit.framework -I/System/Library/Frameworks/Cocoa.framework -L/Users/tomasmore/Downloads/glfw-3.0.4/build/src/ "  glfw.scm
 ||#
-;; including the glfwnative bindings
-(c-declare #<<c-declare-end
-#include <OpenGL/gl.h>
-#include <GLFW/glfw3.h>
-c-declare-end
-);#include "glew.h" 
 
-(include "OpenGL.scm")
 (include "glfwNative.scm")
 (include "glfwConstantConverter.scm")
 
