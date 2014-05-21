@@ -28,7 +28,7 @@ Copy paste the following into your gambit to test:
 (define should-quit? #f)
 
 (glfw#window-on-key-press-set! main-window
-     (lambda (window in-key scancode a b)
+     (lambda (window in-key scancode action modifier)
        (if (eq? in-key GLFW_KEY_0)
            (set! should-quit? #t))
        (let ((key (glfw-key->schmobj in-key))
