@@ -12,19 +12,57 @@ Windows:
 opengl3
 
 
-There are now also a schemified version! see glfwREADME.md
-or read glwf.scm ;)
+There are now also a schemified version! see glfwREADME.md or read glwf.scm ;)
+Do it!
 
 
 
 To test, when compiled run: 
-
+# Schemified mode
+No compilation needed ;)
 ```scheme
-(load "gambitNative.o1")
+(load "glfw.o1")
+
+(define window (glfw#make-window 100 100))
+(define should-quit? #f)
+
+(glfw#window-on-key-press-set! main-window
+     (lambda (window in-key scancode a b)
+       (if (eq? in-key GLFW_KEY_0)
+           (set! should-quit? #t))
+       (let ((key (glfw-key->schmobj in-key))
+             (x-pos (glfw#window-position-x main-window))
+             (y-pos (glfw#window-position-y main-window)))
+             
+         (print key)
+         (newline)
+         (case key
+           ((key-left)  (glfw#window-position-x-set! main-window (- x-pos 5)))
+           ((key-right) (glfw#window-position-x-set! main-window (+ x-pos 5)))
+           ((key-up)    (glfw#window-position-y-set! main-window (- y-pos 5)))
+           ((key-down)  (glfw#window-position-y-set! main-window (+ y-pos 5)))
+           ))))
+       
+(let loop ()
+  (glfw-native#poll-events)
+  (glfw#window-swap-buffers main-window)
+  (if should-quit? #f (loop))      
+  )
+
+```
+You Should now have a 100 x 100 black window (might be flimmering due to non cleared buffers...
+And you can move it around the screen with your arrow keys!
+
+press "0" to quit
+
+
+# Native mode
+```scheme
+(load "glfwNative.o1")
 (if (not (glfw-native#init))
 (print "glfw init error \n")
 )
-(define window (glfw-native#create-window 100 100 #f #f))
+(define window (glfw-native#create-window 100 100 "test" #f #f))
 ```
 This should give you a 100 x 100 black window.
 
