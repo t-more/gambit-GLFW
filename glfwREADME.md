@@ -109,11 +109,103 @@ Sets the title of the window
 Returns the monitor of the window. The result is a C object
 
 # Input events 
+The following input envent setters takes two arguments,
+The first is the window you wish to address
+The second is either a procedure to be run when the event fires
+OR 
+```scheme
+#f
+```
+If you with to deactivate that particular event
+
+All procedures that are passed on as event handlers will be given
+as a first element the window that the given event was intended for
+
 
 ```scheme
-(glfw#window-monitor glfw#window)
-```
+(glfw#window-on-close-set! glfw#window  procedure)
 
+```
+Procedure to be run when a window should close. 
+The procedure is given the window that should be closed
+
+```scheme
+(glfw#window-on-refresh-set! glfw#window procedure)
+```
+Procedure to be run when the window should be refreshed
+The procedure is given the window that should be refreshed
+```scheme
+(glfw#window-on-resize-set! glfw#window procedure)
+```
+Procedure to be run when the window is resized
+The procedure is giventhe new x-position and y-position
+```scheme
+(glfw#window-on-iconify-set! glfw#window procedure)
+```
+Procedure to be run when the window is iconified/"deiconified"
+The procedure is given a boolean if #t the window was iconified if #f it was "deiconified"
+```scheme
+(glfw#window-on-reposition-set! glfw#window procedure)
+```
+Procedure to be run when the window is repositioned
+The procedure is given the new width and height
+
+```scheme
+(glfw#window-on-focus-set! glfw#window procedure)
+```
+Procedure to be run when the window is focused/defocused
+The procedure is given a boolean if #t the window was focused if #f it was defocused
+
+
+```scheme
+(glfw#window-on-mouse-click-set! glfw#window procedure)
+```
+Procedure to run on mouse click.
+The procedure is given: 
+The button that was clicked see "symbol->glfw-mouse-button" 
+The action of the button (press release repeat)
+The modifier key/keys held down while doing this action
+
+```scheme
+(glfw#window-on-cursor-move-set! glfw#window procedure)
+```
+Procedure to run on cursor movement.
+The procedure is given two doubles for x-position and y-position
+
+```scheme
+(glfw#window-on-mouse-enter-set! glfw#window procedure)
+```
+Procedure to be run when the mouse enters the window
+The procedure is given a boolean, if #t the mouse enter if #f the cursor has left
+
+
+```scheme
+(glfw#window-on-scroll-set! glfw#window procedure)
+```
+Procedure to run on cursor movement.
+The procedure is given two doubles for x and y
+
+```scheme
+(glfw#window-on-key-press-set! glfw#window procedure)
+```
+Procedure that is run when a key is pressed,
+The procedure is given:
+
+the key number  see "glfw-key->schmobj" in glfwConstantconverter to convert to scheme firendly 
+the scancode (the number the os gives the key)
+the action of the key (press realease hold)
+the modifier keys held down while key was pressed
+
+```scheme
+(glfw#window-on-char-press-set! glfw#window procedure)
+```
+Procedure run on a character press,
+The procedure is given the char that was pressed, it doesn't like utf8 verry much...
+```scheme
+(glfw#window-on-framebuffer-resize-set! glfw#window procedure)
+```
+And last but not leads on framebuffer resize 
+The procedure is given  the new width and height of the framebuffer
 
 # Hints
 Hints are used to tell glfw what properties a window is going to have
@@ -130,6 +222,7 @@ See:
 "symbol->glfw-hint" and "symbol->glfw-hint-value"
 in 
 https://github.com/black0range/gambit-GLFW/blob/master/glfwContantconveter.scm
+
 
 
 
