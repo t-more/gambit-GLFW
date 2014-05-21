@@ -19,7 +19,8 @@ Do it!
 
 To test, when compiled run: 
 # Schemified mode
-No compilation needed ;)
+No program compilation needed ;)
+Copy paste the following into your gambit to test:
 ```scheme
 (load "glfw.o1")
 
