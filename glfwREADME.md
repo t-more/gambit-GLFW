@@ -1,24 +1,47 @@
-Schemidfed glfw bingins
+Schemidfed glfw bindings
 ================================
 
-Well documented schtuff is comming soon.
-for now...
+This document specifices the procedures as redefined and how they work
 
-I've remade it such that no extra c bindings is needed and everything works from the compiler
-
-First (glfw#init) isn't realy needen anymore, (although it is there)
-
-if you're calling glfw#make-window and we're not initated it will do so automaticly
-
-
-(glfw#make-window width height title #!key (share #f) (monitor #f))
-Is used to make a window and returns an instance of the glfw#window define-type
-
-to set for example a on key press function
-run
-(glfw#window-on-key-press-set! WINDOW (lambda (window in-key scancodeaction mods)
-                                            ... CODE
-                                             ))
+# Init and terminate
+```scheme
+(glfw#init)
+(glfw#terminate)
+```
+Simple as that call init to start glfw and terminate to terminate it.
 
 
-or read glfw.scm and glfwContantconverter.scm ;)
+# Error handling
+```scheme
+(glfw#set-error-callback on-error-procedure)
+```
+Takes either a lambda with two args or #f
+
+# Window handling
+```scheme
+(glfw#make-window width height title
+             #!key
+             (monitor #f)
+             (share   #f)
+             )
+```
+Requires width height and title to run but takes monitor and share as key arguments
+(see glfw documentation for monitor and share)
+Making a window passes you a scheme object called "glfw#window" and this IS NOT compatible with native glfw.
+
+```scheme
+(glfw#window-destroy glfw#window)
+```
+To destroy a window.
+
+```scheme
+(glfw#window-show glfw#window)
+```
+Shows a hidden or iconified window
+
+```scheme
+(glfw#window-show glfw#window)
+```
+```scheme
+(glfw#window-show glfw#window)
+```
