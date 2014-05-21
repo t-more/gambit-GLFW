@@ -3,6 +3,12 @@ Schemidfed glfw bindings
 
 This document specifices the procedures as redefined and how they work
 
+Many of the Input event callbacks gives numbers as codes for diffrent types of callback
+see the diffrent converters found in the file "glfwConstantconverter.scm" to remake the diffrent codes
+to more scheme firendly alternatives.
+
+
+
 # Init and terminate
 ```scheme
 (glfw#init)
